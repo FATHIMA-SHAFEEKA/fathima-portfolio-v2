@@ -1,0 +1,1420 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="FoodLoop UX case study by Fathima Shafeeka.">
+<title>FoodLoop | UX Case Study</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --blue:#2563eb;
+  --blue-deep:#1748b5;
+  --navy:#14213d;
+  --text:#25334c;
+  --muted:#64748b;
+  --line:#dce5f1;
+  --pale:#eaf1ff;
+  --bg:#f7faff;
+  --white:#fff;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  margin:0;
+  font-family:"DM Sans",sans-serif;
+  color:var(--navy);
+  background:white;
+}
+a { text-decoration:none; color:inherit; }
+img { display:block; max-width:100%; }
+.container { width:min(1120px,calc(100% - 40px)); margin:auto; }
+.section { padding:85px 0; border-bottom:1px solid var(--line); scroll-margin-top:80px; }
+.soft { background:var(--bg); }
+.eyebrow {
+  font-size:11px;
+  letter-spacing:2px;
+  font-weight:800;
+  text-transform:uppercase;
+  color:var(--blue);
+}
+h1,h2,h3,p { overflow-wrap:break-word; }
+h2 {
+  font-size:clamp(32px,4.6vw,54px);
+  letter-spacing:-2px;
+  line-height:1.16;
+  margin:16px 0;
+}
+h3 { font-size:20px; letter-spacing:-.5px; }
+p { line-height:1.85; }
+.serif {
+  font-family:"Playfair Display",serif;
+  font-style:italic;
+  font-weight:500;
+  color:var(--blue);
+}
+.lead {
+  max-width:760px;
+  font-size:15px;
+  color:var(--muted);
+}
+.section-head { margin-bottom:38px; }
+.small { font-size:12px; color:var(--muted); }
+.btn {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:100px;
+  padding:14px 22px;
+  font-size:13px;
+  font-weight:700;
+  transition:.2s;
+}
+.btn-blue { background:var(--blue); color:white; }
+.btn-blue:hover { background:var(--blue-deep); }
+.btn-outline { border:1px solid #b9cbea; }
+.btn-outline:hover { background:var(--pale); }
+a:focus-visible {
+  outline:3px solid var(--blue);
+  outline-offset:4px;
+}
+
+/* NAVIGATION */
+nav {
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(255,255,255,.97);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(12px);
+}
+.nav-inner {
+  min-height:72px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+.logo { font-weight:800; font-size:15px; }
+.logo span { color:var(--blue); }
+.nav-links {
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:22px;
+  font-size:12px;
+  font-weight:700;
+}
+.nav-links a:hover { color:var(--blue); }
+
+/* HERO */
+.hero {
+  padding:95px 0;
+  background:
+    radial-gradient(circle at 85% 10%,#d9e7ff,transparent 40%),
+    linear-gradient(135deg,#fbfdff,#edf4ff);
+}
+.hero-grid {
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  align-items:center;
+  gap:55px;
+}
+.pill {
+  display:inline-block;
+  padding:9px 15px;
+  border-radius:30px;
+  background:#e0eaff;
+  color:var(--blue);
+  font-size:11px;
+  font-weight:800;
+}
+.hero h1 {
+  font-size:clamp(65px,9vw,112px);
+  letter-spacing:-6px;
+  margin:24px 0 12px;
+  line-height:1;
+}
+.hero h1 span { color:var(--blue); }
+.hero h2 {
+  font-size:clamp(26px,3vw,39px);
+  font-family:"Playfair Display",serif;
+  font-weight:500;
+  letter-spacing:-1px;
+}
+.hero p {
+  color:#5d6e89;
+  font-size:15px;
+  max-width:520px;
+}
+.actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:26px; }
+.hero-art {
+  min-height:350px;
+  border-radius:28px;
+  background:linear-gradient(145deg,#2563eb,#83b4ff);
+  display:grid;
+  place-items:center;
+  padding:35px;
+  color:white;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.hero-art::before {
+  content:"";
+  position:absolute;
+  width:330px;
+  height:330px;
+  border:1px solid #ffffff55;
+  border-radius:50%;
+  top:-170px;
+  right:-80px;
+}
+.hero-art strong {
+  display:block;
+  font-size:32px;
+  margin-top:15px;
+}
+.loop-icon {
+  margin:auto;
+  width:100px;
+  height:100px;
+  background:white;
+  color:var(--blue);
+  border-radius:27px;
+  display:grid;
+  place-items:center;
+  font-size:55px;
+  font-weight:800;
+}
+.hero-art p { color:#edf4ff; margin:8px auto; }
+
+/* METADATA */
+.meta {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+  padding:30px 0;
+}
+.meta small {
+  display:block;
+  font-size:10px;
+  color:var(--muted);
+  font-weight:800;
+  letter-spacing:1px;
+  margin-bottom:8px;
+  text-transform:uppercase;
+}
+.meta strong { font-size:13px; }
+
+/* SHARED COMPONENTS */
+.grid-2 {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:20px;
+}
+.grid-3 {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+}
+.card {
+  background:white;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:27px;
+}
+.card h3 { margin:0 0 12px; }
+.card p,.card li {
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.85;
+}
+.card ul { padding-left:20px; }
+.dark-card {
+  background:var(--navy);
+  color:white;
+  border-radius:22px;
+  padding:35px;
+}
+.dark-card p { color:#c4d0e3; font-size:14px; }
+.dark-card h3 { font-size:25px; line-height:1.4; }
+.notice {
+  border:1px solid #efdfc5;
+  border-left:4px solid #c98b4d;
+  background:#fff9f0;
+  border-radius:12px;
+  padding:20px 24px;
+  margin:25px 0;
+}
+.notice p { color:#79654f; font-size:13px; margin:6px 0 0; }
+.chips { display:flex; gap:10px; flex-wrap:wrap; margin:20px 0; }
+.chip {
+  background:var(--pale);
+  color:var(--blue-deep);
+  border-radius:30px;
+  padding:9px 14px;
+  font-size:12px;
+  font-weight:700;
+}
+
+/* IMAGE SHOWCASE */
+.showcase {
+  background:white;
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:20px;
+  margin:25px 0 35px;
+}
+.showcase img {
+  width:100%;
+  height:auto;
+  object-fit:contain;
+  border-radius:10px;
+}
+.showcase figcaption {
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.8;
+  margin-top:14px;
+}
+.showcase h3 { margin:5px 0 15px; }
+.image-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:20px;
+}
+.image-grid .showcase { margin:0; }
+.full { grid-column:1/-1; }
+.scroll-image {
+  overflow-x:auto;
+  background:#f8faff;
+  border-radius:12px;
+  padding:12px;
+}
+.scroll-image img {
+  width:100%;
+  min-width:650px;
+  max-width:none;
+}
+.image-help {
+  font-size:11px;
+  color:var(--muted);
+  margin-top:10px;
+}
+
+/* PERSONAS */
+.persona-grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+}
+.persona {
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:25px;
+}
+.persona-head { display:flex; align-items:center; gap:12px; }
+.avatar {
+  width:50px;
+  height:50px;
+  flex-shrink:0;
+  border-radius:50%;
+  background:var(--blue);
+  color:white;
+  display:grid;
+  place-items:center;
+  font-weight:800;
+  font-size:22px;
+}
+.persona h3 { margin:0; }
+.persona .role { color:var(--blue); font-size:12px; }
+.persona p { font-size:13px; color:var(--muted); }
+.persona blockquote {
+  margin:20px 0;
+  background:var(--pale);
+  border-radius:12px;
+  padding:18px;
+  font-size:14px;
+  font-weight:700;
+  line-height:1.7;
+}
+.persona-detail {
+  padding-top:15px;
+  border-top:1px solid var(--line);
+  margin-top:15px;
+}
+.persona-detail strong { font-size:12px; }
+.assumption {
+  background:#fff6ed;
+  color:#9c6038;
+  border-radius:10px;
+  padding:14px;
+  font-size:12px;
+  margin-top:18px;
+}
+
+/* RESEARCH THEMES */
+.theme {
+  display:grid;
+  grid-template-columns:45px 1fr 1.3fr;
+  gap:20px;
+  padding:22px;
+  border:1px solid var(--line);
+  border-radius:15px;
+  background:white;
+  margin-bottom:12px;
+}
+.theme .number {
+  width:40px;
+  height:40px;
+  border-radius:11px;
+  background:var(--pale);
+  display:grid;
+  place-items:center;
+  color:var(--blue);
+  font-size:12px;
+  font-weight:800;
+}
+.theme h3 { font-size:17px; margin:7px 0; }
+.theme p { font-size:13px; color:var(--muted); margin:0; }
+.hmw {
+  background:var(--pale);
+  border-radius:16px;
+  padding:25px;
+}
+.hmw span { font-size:11px; font-weight:800; color:var(--blue); }
+.hmw h3 { font-size:18px; line-height:1.5; }
+
+/* FLOWS */
+.flow-group { margin:45px 0 65px; }
+.flow-heading {
+  display:flex;
+  align-items:flex-start;
+  gap:15px;
+}
+.flow-number {
+  background:var(--pale);
+  color:var(--blue);
+  border-radius:12px;
+  padding:12px 16px;
+  font-weight:800;
+  font-size:13px;
+}
+.flow-heading h3 { font-size:25px; margin:0 0 8px; }
+.flow-heading p { font-size:13px; color:var(--muted); margin:0; }
+.steps {
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:9px;
+  margin:24px 0;
+}
+.steps span {
+  background:var(--pale);
+  color:var(--blue-deep);
+  padding:12px 14px;
+  border-radius:10px;
+  font-size:12px;
+  font-weight:700;
+}
+.steps b { color:var(--blue); }
+.flow-note {
+  background:#f3f7ff;
+  border:1px solid var(--line);
+  border-radius:13px;
+  padding:20px;
+  font-size:13px;
+  line-height:1.8;
+  margin:16px 0;
+}
+.edge-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+.edge {
+  background:white;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:17px;
+  font-size:12px;
+  font-weight:700;
+}
+.edge::before { content:"↳ "; color:var(--blue); }
+
+/* WIREFRAMES */
+.wireframe-intro {
+  background:white;
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:25px;
+  margin-bottom:30px;
+}
+.wireframe-intro p { font-size:13px; color:var(--muted); }
+.wireframe-showcase {
+  background:white;
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:25px;
+  margin:24px 0;
+}
+.wireframe-showcase h3 { margin:8px 0; }
+.wireframe-showcase p { font-size:13px; color:var(--muted); }
+.wireframe-showcase img {
+  width:100%;
+  height:auto;
+  border-radius:12px;
+  margin-top:20px;
+  background:#f7f9fc;
+}
+.wireframe-showcase figcaption {
+  font-size:12px;
+  color:var(--muted);
+  margin-top:15px;
+  line-height:1.8;
+}
+.wireframe-tag {
+  font-size:11px;
+  font-weight:800;
+  color:var(--blue);
+  letter-spacing:1px;
+}
+
+/* FINAL UI */
+.final-section {
+  background:linear-gradient(135deg,#f5f9ff,#eaf2ff);
+}
+.coming-soon {
+  text-align:center;
+  background:white;
+  border:1px dashed #adc4eb;
+  border-radius:24px;
+  padding:65px 25px;
+}
+.coming-soon .symbol { font-size:40px; color:var(--blue); }
+.coming-soon h3 { font-size:26px; }
+.coming-soon p {
+  max-width:550px;
+  margin:0 auto;
+  color:var(--muted);
+  font-size:14px;
+}
+.next {
+  background:var(--navy);
+  color:white;
+  padding:80px 0;
+  text-align:center;
+}
+.next h2 {
+  font-family:"Playfair Display",serif;
+  font-weight:500;
+}
+.next p { color:#bdcbe1; font-size:14px; }
+.next .btn { background:white; color:var(--navy); }
+footer {
+  padding:28px 0;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  font-size:12px;
+  color:var(--muted);
+}
+
+@media(max-width:950px) {
+  .hero-grid { gap:30px; }
+  .persona-grid { grid-template-columns:1fr 1fr; }
+  .theme { grid-template-columns:45px 1fr; }
+  .theme p { grid-column:2; }
+  .edge-grid { grid-template-columns:repeat(2,1fr); }
+}
+@media(max-width:700px) {
+  .section { padding:65px 0; }
+  .hero { padding:65px 0; }
+  .hero-grid,.grid-2,.grid-3,.persona-grid,.image-grid {
+    grid-template-columns:1fr;
+  }
+  .hero h1 { letter-spacing:-3px; }
+  .hero-art { min-height:280px; }
+  .meta { grid-template-columns:1fr 1fr; }
+  .nav-links a:not(.back) { display:none; }
+  .full { grid-column:auto; }
+  .theme { gap:12px; padding:18px; }
+  .wireframe-showcase { padding:15px; }
+  .showcase { padding:12px; }
+  footer { flex-direction:column; }
+}
+@media(max-width:420px) {
+  .logo { font-size:12px; }
+  .nav-links { font-size:11px; }
+  .edge-grid { grid-template-columns:1fr 1fr; }
+}
+@media(prefers-reduced-motion:reduce) {
+  html { scroll-behavior:auto; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">
+      FATHIMA SHAFEEKA<span>.</span>
+    </a>
+    <div class="nav-links">
+      <a href="#research">Research</a>
+      <a href="#personas">Personas</a>
+      <a href="#flows">Flows</a>
+      <a href="#wireframes">Wireframes</a>
+      <a href="#final-ui">Final UI</a>
+      <a href="index.html" class="back">← Portfolio</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="pill">UX Research · Product Design · In progress</span>
+      <h1>Food<span>Loop.</span></h1>
+      <h2>
+        Share more.
+        <span class="serif">Waste less.</span>
+      </h2>
+      <p>
+        A mobile-first food redistribution concept
+        connecting people with surplus food to
+        community receivers through a simpler,
+        more reliable collection experience.
+      </p>
+      <div class="actions">
+        <a href="#research" class="btn btn-blue">Explore case study ↘</a>
+        <a href="#wireframes" class="btn btn-outline">View wireframes ↗</a>
+      </div>
+    </div>
+
+    <div class="hero-art">
+      <div>
+        <div class="loop-icon">↻</div>
+        <strong>FoodLoop</strong>
+        <p>Connecting surplus with purpose.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- METADATA -->
+<div class="container">
+  <div class="meta">
+    <div><small>Project</small><strong>FoodLoop</strong></div>
+    <div><small>Role</small><strong>UX Research & UI/UX Design</strong></div>
+    <div><small>Platform</small><strong>Mobile-first</strong></div>
+    <div><small>Status</small><strong>In progress · 2026</strong></div>
+  </div>
+</div>
+
+<!-- 01 OVERVIEW -->
+<section class="section" id="overview">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">01 / Project overview</span>
+      <h2>Good food deserves a <span class="serif">better destination.</span></h2>
+      <p class="lead">
+        FoodLoop explores how donors and receivers could
+        coordinate surplus-food redistribution with less
+        confusion, more trust and clearer pickup arrangements.
+      </p>
+    </div>
+
+    <div class="grid-2">
+      <div>
+        <h3>The opportunity</h3>
+        <p class="lead">
+          Surplus food is time-sensitive. A donor may be ready
+          to give food away, but finding someone who can collect
+          it at the right time can be difficult.
+        </p>
+        <p class="lead">
+          FoodLoop focuses on the complete experience:
+          posting food, browsing availability, claiming,
+          arranging collection and confirming handover.
+        </p>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3 style="color:var(--blue)">04</h3>
+            <p>Assumed stakeholder profiles</p>
+          </div>
+          <div class="card">
+            <h3 style="color:var(--blue)">08</h3>
+            <p>Research themes</p>
+          </div>
+          <div class="card">
+            <h3 style="color:var(--blue)">02</h3>
+            <p>Core user journeys</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dark-card">
+        <span class="eyebrow" style="color:#a8c6ff">THE DESIGN CHALLENGE</span>
+        <h3>
+          How can donors and receivers coordinate
+          time-sensitive food sharing more reliably?
+        </h3>
+        <p>
+          The concept prioritises quick posting,
+          visible availability, pickup windows,
+          food-safety information and handover confirmation.
+        </p>
+        <p class="small" style="color:#adbfdb">
+          This problem framing is based on secondary
+          research and unvalidated stakeholder assumptions.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 RESEARCH -->
+<section class="section soft" id="research">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">02 / UX research</span>
+      <h2>Understanding the <span class="serif">problem space.</span></h2>
+      <p class="lead">
+        I began with secondary research and hypothetical
+        stakeholder scenarios to explore potential barriers
+        to food donation and collection.
+      </p>
+    </div>
+
+    <div class="notice">
+      <strong>Research transparency</strong>
+      <p>
+        This was assumption-based proto-research conducted
+        in October 2026. No real participants were interviewed.
+        AI-assisted scenario answers and illustrative quotes
+        are hypotheses, not real interview findings.
+      </p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>Research method</h3>
+        <p>
+          I created four hypothetical stakeholder profiles
+          and drafted possible answers to eight interview
+          questions, informed by secondary-source context.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Secondary sources</h3>
+        <p>
+          SharePlate research paper, Robin Hood Army
+          Sri Lanka, and articles about food waste and
+          redistribution in Sri Lanka.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Stakeholders considered</h3>
+        <ul>
+          <li>Small neighbourhood bakery owner</li>
+          <li>Hotel or event caterer</li>
+          <li>Charity volunteer / receiver</li>
+          <li>Household donor</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Research focus</h3>
+        <ul>
+          <li>Surplus-food handling</li>
+          <li>Barriers to donating</li>
+          <li>Collection coordination</li>
+          <li>Trust and food-safety concerns</li>
+          <li>Preferred devices and workflows</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 PROTO-PERSONAS -->
+<section class="section" id="personas">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">03 / Proto-personas</span>
+      <h2>Different people. <span class="serif">Different needs.</span></h2>
+      <p class="lead">
+        Three illustrative personas helped connect
+        stakeholder assumptions to possible
+        product requirements.
+      </p>
+    </div>
+
+    <div class="notice">
+      <strong>Illustrative personas</strong>
+      <p>
+        Nadeesha, Kasun and Shalini are fictional profiles.
+        Their ages, names and quotes are illustrative.
+        The hotel/caterer was considered in the research
+        but is not presented as a separate detailed persona.
+      </p>
+    </div>
+
+    <div class="persona-grid">
+
+      <article class="persona">
+        <div class="persona-head">
+          <div class="avatar">N</div>
+          <div>
+            <h3>Nadeesha, 42</h3>
+            <span class="role">Donor · Bakery owner</span>
+          </div>
+        </div>
+        <p>
+          Runs a neighbourhood bakery and may have
+          unsold bread and short-eats at closing.
+        </p>
+        <blockquote>
+          “I would donate more if someone
+          reliably came to collect it.”
+        </blockquote>
+        <div class="persona-detail">
+          <strong>Goal</strong>
+          <p>Donate surplus without extra closing-time work.</p>
+        </div>
+        <div class="persona-detail">
+          <strong>Barrier</strong>
+          <p>Unreliable pickup and food-safety concerns.</p>
+        </div>
+        <div class="persona-detail">
+          <strong>Design response</strong>
+          <p>Quick listing, fixed pickup windows and pickup codes.</p>
+        </div>
+        <div class="assumption">
+          To validate: Will donors accept fixed pickup windows?
+        </div>
+      </article>
+
+      <article class="persona">
+        <div class="persona-head">
+          <div class="avatar">K</div>
+          <div>
+            <h3>Kasun, 23</h3>
+            <span class="role">Receiver · Student volunteer</span>
+          </div>
+        </div>
+        <p>
+          Helps a community group collect and
+          distribute surplus food.
+        </p>
+        <blockquote>
+          “Messages get buried, and sometimes
+          the food is gone before we reply.”
+        </blockquote>
+        <div class="persona-detail">
+          <strong>Goal</strong>
+          <p>Find available food with clear quantity and pickup details.</p>
+        </div>
+        <div class="persona-detail">
+          <strong>Barrier</strong>
+          <p>Short notice, limited transport and unclear availability.</p>
+        </div>
+        <div class="persona-detail">
+          <strong>Design response</strong>
+          <p>Live listing status, photos and verified donor indicators.</p>
+        </div>
+        <div class="assumption">
+          To validate: Is a live list more useful than WhatsApp groups?
+        </div>
+      </article>
+
+      <article class="persona">
+        <div class="persona-head">
+          <div class="avatar">S</div>
+          <div>
+            <h3>Shalini, 34</h3>
+            <span class="role">Individual · Household donor</span>
+          </div>
+        </div>
+        <p>
+          Works full-time and sometimes has
+          small quantities of leftover food.
+        </p>
+        <blockquote>
+          “I don't know where to give small amounts,
+          and it feels awkward.”
+        </blockquote>
+        <div class="persona-detail">
+          <strong>Goal</strong>
+          <p>Find a practical way to avoid wasting small portions.</p>
+        </div>
+        <div class="persona-detail">
+          <strong>Barrier</strong>
+          <p>No obvious donation route and home-privacy concerns.</p>
+        </div>
+        <div class="persona-detail">
+          <strong>Design response</strong>
+          <p>Explore drop-off points and privacy-first details.</p>
+        </div>
+        <div class="assumption">
+          To validate: Would drop-off points encourage small donations?
+        </div>
+      </article>
+
+    </div>
+
+    <h3 style="margin-top:45px">Original persona documentation</h3>
+
+    <figure class="showcase">
+      <img src="images/foodloop-persona-comparison.png"
+           alt="Comparison of three FoodLoop proto-personas"
+           loading="lazy">
+      <figcaption>
+        Proto-persona comparison — goals, barriers,
+        trust needs, devices and proposed features.
+      </figcaption>
+    </figure>
+
+    <div class="image-grid">
+      <figure class="showcase">
+        <img src="images/foodloop-persona-1-nadeesha.png"
+             alt="Nadeesha donor proto-persona"
+             loading="lazy">
+        <figcaption>Nadeesha — bakery donor.</figcaption>
+      </figure>
+      <figure class="showcase">
+        <img src="images/foodloop-persona-2-kasun.png"
+             alt="Kasun receiver proto-persona"
+             loading="lazy">
+        <figcaption>Kasun — charity volunteer.</figcaption>
+      </figure>
+      <figure class="showcase full">
+        <img src="images/foodloop-persona-3-shalini.png"
+             alt="Shalini household donor proto-persona"
+             loading="lazy">
+        <figcaption>Shalini — individual household donor.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- 04 RESEARCH SYNTHESIS -->
+<section class="section soft" id="insights">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">04 / Research synthesis</span>
+      <h2>From assumptions to <span class="serif">design priorities.</span></h2>
+      <p class="lead">
+        Eight potential themes were identified from
+        the hypothetical scenarios. They remain
+        hypotheses until tested with real stakeholders.
+      </p>
+    </div>
+
+    <div class="theme">
+      <span class="number">01</span>
+      <h3>Pickup is the bottleneck</h3>
+      <p>Fixed pickup windows, claim confirmation, pickup code and no-show handling.</p>
+    </div>
+    <div class="theme">
+      <span class="number">02</span>
+      <h3>Coordination gets buried</h3>
+      <p>One live listing feed with visible status and alerts.</p>
+    </div>
+    <div class="theme">
+      <span class="number">03</span>
+      <h3>Fear of unsafe food</h3>
+      <p>Safety acknowledgements and clear food-safety information.</p>
+    </div>
+    <div class="theme">
+      <span class="number">04</span>
+      <h3>Trust needs proof</h3>
+      <p>Food photos, verification indicators, contact options and donation records.</p>
+    </div>
+    <div class="theme">
+      <span class="number">05</span>
+      <h3>Timing matters</h3>
+      <p>Fast posting, visible pickup times and urgent listing states.</p>
+    </div>
+    <div class="theme">
+      <span class="number">06</span>
+      <h3>Phone-first behaviour</h3>
+      <p>Mobile-first layouts with short forms and clear actions.</p>
+    </div>
+    <div class="theme">
+      <span class="number">07</span>
+      <h3>Managers need oversight</h3>
+      <p>Potential future desktop dashboard and donation records.</p>
+    </div>
+    <div class="theme">
+      <span class="number">08</span>
+      <h3>Small donors need a route</h3>
+      <p>Explore drop-off points as a future feature.</p>
+    </div>
+
+    <h3 style="margin-top:40px">Three working hypotheses</h3>
+    <div class="grid-3">
+      <div class="hmw">
+        <span>HYPOTHESIS 01</span>
+        <h3>Predictable pickup times may encourage regular donations.</h3>
+      </div>
+      <div class="hmw">
+        <span>HYPOTHESIS 02</span>
+        <h3>Receivers may need earlier notice of quantity and pickup time.</h3>
+      </div>
+      <div class="hmw">
+        <span>HYPOTHESIS 03</span>
+        <h3>Both sides may need visible safety and trust information.</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 PROBLEM DEFINITION -->
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">05 / Problem definition</span>
+      <h2>How might <span class="serif">we...</span></h2>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <span class="eyebrow">HMW 01</span>
+        <h3>Make pickup reliable enough that donors trust someone will come?</h3>
+      </div>
+      <div class="card">
+        <span class="eyebrow">HMW 02</span>
+        <h3>Give donors and receivers clearer safety information?</h3>
+      </div>
+      <div class="card">
+        <span class="eyebrow">HMW 03</span>
+        <h3>Help a busy kitchen post surplus food quickly from a phone?</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 USER FLOWS -->
+<section class="section" id="flows">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">06 / Information architecture & user flows</span>
+      <h2>Designing the <span class="serif">complete journey.</span></h2>
+      <p class="lead">
+        The MVP focuses on posting, browsing,
+        claiming, collecting and confirming food handover.
+      </p>
+    </div>
+
+    <!-- SITEMAP -->
+    <div class="flow-group">
+      <div class="flow-heading">
+        <span class="flow-number">01</span>
+        <div>
+          <h3>Sitemap / Information architecture</h3>
+          <p>
+            Four page groups: public pages, account and
+            system pages, donor pages and receiver pages.
+          </p>
+        </div>
+      </div>
+
+      <div class="chips">
+        <span class="chip">Public pages</span>
+        <span class="chip">Account / system</span>
+        <span class="chip">Donor area</span>
+        <span class="chip">Receiver area</span>
+      </div>
+
+      <div class="flow-note">
+        <strong>MVP:</strong> Post, browse, claim, collect and impact.
+        About, History and extended Profile functionality
+        are planned for later.
+      </div>
+
+      <figure class="showcase">
+        <img src="images/foodloop-sitemap.png"
+             alt="FoodLoop sitemap showing public, account, donor and receiver pages"
+             loading="lazy">
+        <figcaption>
+          Sitemap — overall structure of the FoodLoop experience.
+        </figcaption>
+      </figure>
+    </div>
+
+    <!-- DONOR FLOW -->
+    <div class="flow-group">
+      <div class="flow-heading">
+        <span class="flow-number">02</span>
+        <div>
+          <h3>Donor user flow</h3>
+          <p>
+            A streamlined journey for posting surplus food
+            and completing a confirmed pickup.
+          </p>
+        </div>
+      </div>
+
+      <div class="steps">
+        <span>Sign up</span><b>→</b>
+        <span>Post food</span><b>→</b>
+        <span>Publish</span><b>→</b>
+        <span>Receiver claims</span><b>→</b>
+        <span>Pickup code</span><b>→</b>
+        <span>Complete</span>
+      </div>
+
+      <div class="flow-note">
+        <strong>Key design decision:</strong>
+        New donors can move directly from sign-up
+        to posting food, avoiding an unnecessary
+        dashboard step. Returning donors
+        can use their dashboard.
+      </div>
+
+      <div class="flow-note">
+        <strong>Alternative states:</strong>
+        No connection while posting, expired listing,
+        donor cancellation and missed pickup.
+      </div>
+
+      <figure class="showcase">
+        <h3>Donor flow diagram</h3>
+        <img src="images/foodloop-donor-flow.png"
+             alt="FoodLoop donor flow from signup to posting, publishing and pickup confirmation"
+             loading="lazy">
+        <figcaption>
+          Donor journey — posting, publishing,
+          claim management and pickup confirmation.
+        </figcaption>
+      </figure>
+    </div>
+
+    <!-- RECEIVER FLOW -->
+    <div class="flow-group">
+      <div class="flow-heading">
+        <span class="flow-number">03</span>
+        <div>
+          <h3>Receiver user flow</h3>
+          <p>
+            A journey for discovering available food,
+            claiming safely and completing collection.
+          </p>
+        </div>
+      </div>
+
+      <div class="steps">
+        <span>Sign up / area</span><b>→</b>
+        <span>Browse</span><b>→</b>
+        <span>Open listing</span><b>→</b>
+        <span>Safety & claim</span><b>→</b>
+        <span>Pickup code</span><b>→</b>
+        <span>Collect</span>
+      </div>
+
+      <div class="flow-note">
+        <strong>Key design decisions:</strong>
+        Show listing status, provide a Call Donor button
+        and propose a reminder 30 minutes before
+        the pickup window ends.
+      </div>
+
+      <figure class="showcase">
+        <h3>Receiver flow diagram</h3>
+        <img src="images/foodloop-receiver-flow.png"
+             alt="FoodLoop receiver flow including browsing, claiming, pickup and alternative states"
+             loading="lazy">
+        <figcaption>
+          Receiver journey — includes empty results,
+          already-claimed food, cancellations,
+          missed pickup windows and collection.
+        </figcaption>
+      </figure>
+    </div>
+
+    <h3>Edge cases considered</h3>
+    <p class="lead">
+      The experience must remain understandable
+      when the ideal journey cannot be completed.
+    </p>
+
+    <div class="edge-grid">
+      <div class="edge">No nearby listings</div>
+      <div class="edge">Someone claimed first</div>
+      <div class="edge">Receiver cancels</div>
+      <div class="edge">Late cancellation</div>
+      <div class="edge">Pickup window missed</div>
+      <div class="edge">Listing expires</div>
+      <div class="edge">Donor cancels</div>
+      <div class="edge">No connection while posting</div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 WIREFRAMES -->
+<section class="section soft" id="wireframes">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">07 / Low-fidelity wireframes</span>
+      <h2>From user flows to <span class="serif">screen structures.</span></h2>
+      <p class="lead">
+        The wireframes explore how donors and receivers
+        navigate FoodLoop, complete essential tasks
+        and respond to different interface states.
+      </p>
+    </div>
+
+    <div class="wireframe-intro">
+      <h3>Wireframing approach</h3>
+      <p>
+        I focused on clear navigation, short task flows,
+        visible status information and mobile-friendly
+        interactions before finalising the visual design.
+      </p>
+      <div class="chips">
+        <span class="chip">Mobile-first</span>
+        <span class="chip">Simple navigation</span>
+        <span class="chip">Clear primary actions</span>
+        <span class="chip">Pickup reliability</span>
+      </div>
+    </div>
+
+    <!-- PUBLIC WIREFRAMES -->
+    <figure class="wireframe-showcase">
+      <span class="wireframe-tag">01 / PUBLIC EXPERIENCE</span>
+      <h3>Public pages</h3>
+      <p>
+        Early page structures for introducing FoodLoop
+        and guiding visitors towards the appropriate
+        account journey.
+      </p>
+      <img src="images/Public pages.png"
+           alt="FoodLoop low-fidelity public page wireframes"
+           loading="lazy">
+      <figcaption>
+        Original public-page wireframe board from the design ZIP.
+      </figcaption>
+    </figure>
+
+    <!-- ACCOUNT / SECTION WIREFRAMES -->
+    <figure class="wireframe-showcase">
+      <span class="wireframe-tag">02 / SHARED SCREENS</span>
+      <h3>Shared interface screens</h3>
+      <p>
+        Supporting screen structures used to explore
+        the wider experience and connections between
+        user journeys.
+      </p>
+      <img src="images/Section 1.png"
+           alt="FoodLoop Section 1 wireframe board"
+           loading="lazy">
+      <figcaption>
+        Original Section 1 wireframe board from the design ZIP.
+      </figcaption>
+    </figure>
+
+    <!-- DONOR WIREFRAMES -->
+    <figure class="wireframe-showcase">
+      <span class="wireframe-tag">03 / DONOR EXPERIENCE</span>
+      <h3>Donor wireframes</h3>
+      <p>
+        The donor experience prioritises a quick
+        food-posting journey, clear listing information,
+        claim management and collection confirmation.
+      </p>
+      <div class="scroll-image">
+        <img src="images/Donor Pages.png"
+             alt="FoodLoop donor low-fidelity wireframe board"
+             loading="lazy">
+      </div>
+      <p class="image-help">
+        On smaller screens, scroll sideways to inspect the full board.
+      </p>
+      <figcaption>
+        Original donor wireframes — showing the proposed
+        donor-side interface structures.
+      </figcaption>
+    </figure>
+
+    <!-- RECEIVER WIREFRAMES -->
+    <figure class="wireframe-showcase">
+      <span class="wireframe-tag">04 / RECEIVER EXPERIENCE</span>
+      <h3>Receiver wireframes</h3>
+      <p>
+        The receiver experience focuses on browsing
+        available food, viewing important listing details,
+        claiming food and following the pickup process.
+      </p>
+      <div class="scroll-image">
+        <img src="images/Receiver Pages.png"
+             alt="FoodLoop receiver low-fidelity wireframe board"
+             loading="lazy">
+      </div>
+      <p class="image-help">
+        On smaller screens, scroll sideways to inspect the full board.
+      </p>
+      <figcaption>
+        Original receiver wireframes — showing the proposed
+        receiver-side interface structures.
+      </figcaption>
+    </figure>
+
+    <div class="grid-3" style="margin-top:35px">
+      <div class="card">
+        <span class="eyebrow">DESIGN PRIORITY 01</span>
+        <h3>Reduce posting effort</h3>
+        <p>Keep donor interactions focused and straightforward.</p>
+      </div>
+      <div class="card">
+        <span class="eyebrow">DESIGN PRIORITY 02</span>
+        <h3>Clarify availability</h3>
+        <p>Help receivers understand food status and pickup details.</p>
+      </div>
+      <div class="card">
+        <span class="eyebrow">DESIGN PRIORITY 03</span>
+        <h3>Confirm handover</h3>
+        <p>Use pickup confirmation to make the process easier to track.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 FINAL UI -->
+<section class="section final-section" id="final-ui">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">08 / High-fidelity UI</span>
+      <h2>Bringing FoodLoop <span class="serif">to life.</span></h2>
+      <p class="lead">
+        The final interface is currently being developed.
+        This section will present the completed donor
+        and receiver screens and the visual design system.
+      </p>
+    </div>
+
+    <div class="coming-soon">
+      <div class="symbol">✦</div>
+      <span class="pill">DESIGN IN PROGRESS</span>
+      <h3>Final UI coming soon</h3>
+      <p>
+        High-fidelity donor and receiver screens,
+        reusable components, interaction states
+        and the final prototype will be added here.
+      </p>
+    </div>
+
+    <div class="grid-3" style="margin-top:25px">
+      <div class="card">
+        <h3>Donor experience</h3>
+        <p>
+          Food posting, listing management,
+          claim notifications and handover.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Receiver experience</h3>
+        <p>
+          Food discovery, filtering, claiming
+          and collection.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Design system</h3>
+        <p>
+          Colours, typography, buttons, forms,
+          cards and interaction states.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 09 REFLECTION -->
+<section class="section" id="reflection">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">09 / Reflection & next steps</span>
+      <h2>What comes <span class="serif">next?</span></h2>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>What this process taught me</h3>
+        <p>
+          Food redistribution is not only a discovery
+          problem. The experience also needs to consider
+          timing, coordination, safety and confirmation
+          between two different user groups.
+        </p>
+        <p>
+          Creating the flows before the final UI helped
+          identify alternative states that a simple
+          happy-path design could miss.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>What I would validate next</h3>
+        <ul>
+          <li>Interview 3–5 real bakery owners and charity volunteers.</li>
+          <li>Test acceptance of fixed pickup windows.</li>
+          <li>Check whether receivers understand pickup codes.</li>
+          <li>Evaluate the final prototype with real users.</li>
+          <li>Revise assumptions that are not supported by evidence.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="notice">
+      <strong>Project status</strong>
+      <p>
+        This case study documents exploratory assumptions,
+        UX planning, user flows and wireframes.
+        It does not claim completed usability testing,
+        validated outcomes or a launched service.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT PROJECT -->
+<section class="next">
+  <div class="container">
+    <span class="eyebrow" style="color:#a8c6ff">
+      Explore another project
+    </span>
+    <h2>Answers on the Spot — Sigiriya</h2>
+    <p>
+      A mobile UX concept for exploring
+      heritage-site information.
+    </p>
+    <a href="sigiriya.html" class="btn">
+      View Sigiriya case study ↗
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer class="container">
+  <span>© 2026 Fathima Shafeeka · FoodLoop UX Case Study</span>
+  <a href="index.html">Back to portfolio ↑</a>
+</footer>
+
+</body>
+</html>

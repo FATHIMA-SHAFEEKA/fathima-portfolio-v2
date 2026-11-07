@@ -1,0 +1,1058 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Sigiriya Answer Guide — a research-led UI/UX case study by Fathima Shafeeka.">
+<title>Sigiriya Answer Guide | Fathima Shafeeka</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root {
+  --green:#193b2a;
+  --ink:#202820;
+  --cream:#f7f6f1;
+  --ochre:#a65c17;
+  --muted:#67716a;
+  --line:#e2e5de;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:'DM Sans',sans-serif;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%;height:auto}
+.container{max-width:1180px;margin:auto;padding:0 26px}
+
+nav{
+  position:sticky;
+  top:0;
+  z-index:10;
+  background:rgba(247,246,241,.96);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  height:75px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+.logo{font-size:16px;font-weight:800;letter-spacing:-.5px}
+.nav-links{display:flex;gap:24px;font-size:13px;font-weight:700;align-items:center}
+.pill{
+  display:inline-block;
+  background:var(--green);
+  color:white;
+  padding:13px 22px;
+  border-radius:30px;
+  font-weight:700;
+  font-size:13px;
+}
+.pill:hover{background:#326047}
+.outline{
+  display:inline-block;
+  border:1px solid #aeb9af;
+  padding:12px 21px;
+  border-radius:30px;
+  font-weight:700;
+  font-size:13px;
+}
+.eyebrow{
+  text-transform:uppercase;
+  font-size:11px;
+  letter-spacing:2px;
+  font-weight:800;
+  color:var(--ochre);
+}
+.hero{padding:85px 0 55px}
+.hero h1{
+  font-size:clamp(53px,7vw,94px);
+  letter-spacing:-4px;
+  line-height:1.06;
+  max-width:1000px;
+  margin:19px 0;
+}
+.serif{
+  font-family:'Playfair Display',serif;
+  font-style:italic;
+  color:var(--green);
+  font-weight:500;
+}
+.lead{
+  font-size:20px;
+  line-height:1.8;
+  color:#56635a;
+  max-width:750px;
+}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:27px}
+.meta{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+  padding:28px 0;
+  margin-top:55px;
+  border-top:1px solid var(--line);
+}
+.meta small{
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  color:var(--muted);
+}
+.meta strong{display:block;margin-top:8px;font-size:14px}
+.hero-banner{
+  background:linear-gradient(125deg,#dce8d8,#f3e1c7);
+  padding:65px 25px;
+  border-radius:22px;
+  text-align:center;
+}
+.hero-banner h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(40px,6vw,80px);
+  color:var(--green);
+  margin:10px;
+}
+.hero-banner p{color:#5c685b}
+.section{padding:90px 0;border-bottom:1px solid var(--line)}
+.section h2{
+  font-size:clamp(35px,4.4vw,58px);
+  letter-spacing:-2px;
+  line-height:1.15;
+  margin:14px 0 23px;
+}
+.section-intro{
+  max-width:750px;
+  color:var(--muted);
+  font-size:17px;
+  line-height:1.8;
+}
+.two-col{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:45px;
+  align-items:start;
+}
+.card{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:28px;
+}
+.card h3{font-size:21px;margin:0 0 13px}
+.card p{font-size:14px;line-height:1.8;color:#5e6a60}
+.stat-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-top:32px;
+}
+.stat{background:#e8eee6;padding:28px;border-radius:15px}
+.stat strong{font-size:37px;color:var(--green)}
+.stat p{font-size:13px;line-height:1.7;color:#59685e}
+.quote{
+  background:#e7eee5;
+  border-left:4px solid var(--green);
+  padding:30px;
+  border-radius:0 14px 14px 0;
+  margin:28px 0;
+  font-family:'Playfair Display',serif;
+  font-size:23px;
+  line-height:1.5;
+}
+.quote small{
+  display:block;
+  font-family:'DM Sans',sans-serif;
+  font-size:12px;
+  margin-top:12px;
+  color:var(--muted);
+}
+.insights{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-top:30px;
+}
+.insight{
+  padding:28px;
+  border:1px solid var(--line);
+  border-radius:15px;
+  background:white;
+}
+.insight span{font-size:12px;color:var(--ochre);font-weight:800}
+.insight h3{font-size:20px;margin:18px 0 10px}
+.insight p{font-size:13px;line-height:1.8;color:var(--muted)}
+.image-frame{
+  border-radius:16px;
+  overflow:hidden;
+  background:#e8ece5;
+  border:1px solid var(--line);
+  margin-top:25px;
+}
+.image-frame img{width:100%;height:auto}
+.caption{
+  font-size:12px;
+  color:var(--muted);
+  line-height:1.7;
+  margin:12px 0 28px;
+}
+.flow-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  margin-top:28px;
+}
+.flow-card{
+  padding:27px;
+  background:white;
+  border:1px solid var(--line);
+  border-radius:15px;
+}
+.flow-card .num{font-size:12px;color:var(--ochre);font-weight:800}
+.flow-card h3{font-size:19px;margin:20px 0 10px}
+.flow-card p{font-size:13px;color:var(--muted);line-height:1.7}
+.screen-gallery{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+  margin-top:30px;
+}
+.screen-gallery figure{margin:0}
+.screen-gallery img{border-radius:15px;border:1px solid var(--line)}
+.screen-gallery figcaption{
+  font-size:13px;
+  color:var(--muted);
+  margin-top:12px;
+  line-height:1.6;
+}
+.dark{background:var(--green);color:white;padding:85px 0}
+.dark h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(37px,5vw,65px);
+  font-weight:500;
+}
+.dark p{color:#d0dcd2;line-height:1.8}
+.dark .eyebrow{color:#edbc85}
+.prototype{
+  padding:90px 0;
+  text-align:center;
+  background:#e8eee6;
+}
+.prototype h2{font-size:clamp(37px,5vw,64px);letter-spacing:-2px}
+.prototype p{
+  color:var(--muted);
+  max-width:650px;
+  margin:0 auto 27px;
+  line-height:1.8;
+}
+.note{
+  background:#fff5e9;
+  padding:20px;
+  border-radius:12px;
+  font-size:13px;
+  line-height:1.8;
+  color:#72532c;
+  margin-top:24px;
+}
+.footer{
+  padding:28px 0;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  font-size:12px;
+  color:var(--muted);
+}
+
+/* PREMIUM WIREFRAME PRESENTATION */
+
+.wireframe-showcase{
+  background:#f3f3ed;
+}
+.wf-intro{
+  max-width:720px;
+  margin-bottom:52px;
+}
+.wf-story{
+  margin-bottom:32px;
+  padding:36px;
+  background:#fff;
+  border:1px solid #e1e5de;
+  border-radius:24px;
+  box-shadow:0 15px 50px rgba(20,45,28,.035);
+}
+.wf-story:nth-of-type(3){
+  background:#e9eee6;
+}
+.wf-story-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:start;
+  gap:25px;
+  margin-bottom:24px;
+}
+.wf-kicker{
+  color:#a65c17;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:1.7px;
+  text-transform:uppercase;
+}
+.wf-story h3{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(27px,3.5vw,43px);
+  color:#193b2a;
+  font-weight:500;
+  margin:12px 0;
+  letter-spacing:-1px;
+}
+.wf-story p{
+  color:#66716a;
+  line-height:1.8;
+  font-size:14px;
+  max-width:620px;
+}
+.wf-number{
+  font-family:'Playfair Display',serif;
+  font-size:56px;
+  color:#d4ddd3;
+  line-height:1;
+}
+.wf-visual{
+  background:linear-gradient(135deg,#eef1e9,#f7f5ee);
+  padding:20px;
+  border-radius:16px;
+  overflow:hidden;
+}
+.wf-visual img{
+  width:100%;
+  height:auto;
+  object-fit:contain;
+  border-radius:9px;
+}
+.wf-flow-labels{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:22px;
+  color:#536a59;
+  font-size:12px;
+  font-weight:700;
+}
+.wf-flow-labels b{
+  color:#a65c17;
+}
+.wf-summary{
+  background:#193b2a;
+  color:white;
+  padding:30px 35px;
+  border-radius:17px;
+  margin-top:35px;
+}
+.wf-summary strong{font-size:17px}
+.wf-summary p{
+  color:#d5e1d5;
+  line-height:1.8;
+  font-size:14px;
+  max-width:850px;
+  margin-bottom:0;
+}
+
+@media(max-width:800px){
+  .meta,.stat-grid,.insights,.flow-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+  .two-col{grid-template-columns:1fr;gap:22px}
+  .hero h1{letter-spacing:-2px}
+  .wf-story{padding:24px}
+}
+@media(max-width:550px){
+  .container{padding:0 18px}
+  .nav-links a:not(.pill){display:none}
+  .hero{padding-top:60px}
+  .meta,.stat-grid,.insights,.flow-grid,.screen-gallery{
+    grid-template-columns:1fr;
+  }
+  .section{padding:60px 0}
+  .footer{flex-direction:column}
+  .wf-story{padding:18px;border-radius:17px}
+  .wf-visual{padding:8px}
+  .wf-number{font-size:36px}
+  .wf-flow-labels{font-size:11px;gap:7px}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="container nav-inner">
+<a href="index.html" class="logo">FATHIMA SHAFEEKA.</a>
+<div class="nav-links">
+<a href="index.html#work">Work</a>
+<a href="#research">Research</a>
+<a href="#design">Design</a>
+<a class="pill" href="mailto:Fathimasfq@gmail.com">Contact ↗</a>
+</div>
+</div>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<section class="hero container">
+<div class="eyebrow">
+Featured case study / UX research + product design
+</div>
+
+<h1>
+Making heritage<br>
+<span class="serif">easier to understand.</span>
+</h1>
+
+<p class="lead">
+A mobile-first heritage guide designed to help Sri Lankan
+visitors find simple, meaningful answers about the features
+they discover at Sigiriya.
+</p>
+
+<div class="hero-actions">
+<a class="pill" href="#design">Explore the designs ↓</a>
+<a class="outline"
+href="https://www.figma.com/proto/ZB5r0ifPbSGa79fYB8XM8i/Shafeeka_Capstone_Stemlink?node-id=201-1655&p=f&t=u5tIpqV7qDy8EVKx-1&scaling=scale-down&content-scaling=fixed&page-id=92%3A1490&starting-point-node-id=201%3A1655&show-proto-sidebar=1"
+target="_blank" rel="noopener">
+View Figma prototype ↗
+</a>
+</div>
+
+<div class="meta">
+<div><small>Project</small><strong>Answers on the Spot</strong></div>
+<div><small>Pilot location</small><strong>Sigiriya, Sri Lanka</strong></div>
+<div><small>My role</small><strong>UI/UX Designer</strong></div>
+<div><small>Deliverables</small><strong>Research · Flows · UI · Prototype</strong></div>
+</div>
+</section>
+
+<div class="container">
+<div class="hero-banner">
+<div class="eyebrow">The experience</div>
+<h2>Discover. Understand. Explore.</h2>
+<p>Short answers, familiar languages and a clearer path to understanding.</p>
+</div>
+</div>
+
+<!-- CHALLENGE -->
+<section class="section">
+<div class="container">
+<div class="eyebrow">01 / The challenge</div>
+
+<h2>
+Visitors can see history.<br>
+<span class="serif">But can they understand it?</span>
+</h2>
+
+<div class="two-col">
+<div>
+<p class="section-intro">
+Visitors often encounter historical features without finding
+enough information to understand how they were made or why
+they matter. Existing signboards may provide basic facts
+without answering deeper questions.
+</p>
+
+<div class="quote">
+“I could see the results of the ancient construction,
+but I couldn't fully understand the process behind it.”
+<small>Participant P2 · Research interview</small>
+</div>
+</div>
+
+<div class="card">
+<h3>The design challenge</h3>
+<p>
+How might we help Sri Lankan family visitors understand
+a specific heritage feature at the moment they become curious?
+</p>
+
+<h3 style="margin-top:30px">The proposed solution</h3>
+<p>
+A mobile web guide that allows visitors to scan or select
+a feature and read a short explanation in Sinhala or English,
+with additional details when needed.
+</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- RESEARCH -->
+<section class="section" id="research">
+<div class="container">
+<div class="eyebrow">02 / Research and discovery</div>
+
+<h2>
+Understanding the people<br>
+<span class="serif">behind the problem.</span>
+</h2>
+
+<p class="section-intro">
+I used four qualitative interviews about visits to Sri Lankan
+heritage sites to identify recurring questions, information
+gaps and language needs.
+</p>
+
+<div class="stat-grid">
+<div class="stat">
+<strong>04</strong>
+<p>Qualitative participant interviews</p>
+</div>
+<div class="stat">
+<strong>29</strong>
+<p>Interview quotes organized in the affinity map</p>
+</div>
+<div class="stat">
+<strong>05</strong>
+<p>Research themes identified</p>
+</div>
+</div>
+
+<div class="image-frame">
+<img src="images/affinity-map.png"
+alt="Affinity map of interview quotes" loading="lazy">
+</div>
+<p class="caption">
+Affinity mapping — grouping observations into five themes.
+</p>
+
+<div class="image-frame">
+<img src="images/thematic-analysis.png"
+alt="Thematic analysis and design opportunities" loading="lazy">
+</div>
+<p class="caption">
+Thematic analysis — connecting participant evidence
+to design opportunities and user stories.
+</p>
+
+<div class="insights">
+<div class="insight">
+<span>INSIGHT 01</span>
+<h3>Seeing isn't understanding</h3>
+<p>
+All four participants described an unanswered question.
+Three wanted more explanation about how, why or background.
+</p>
+</div>
+
+<div class="insight">
+<span>INSIGHT 02</span>
+<h3>Signboards have limits</h3>
+<p>
+Participants valued basic information, but three
+described signs that were too brief or unclear.
+</p>
+</div>
+
+<div class="insight">
+<span>INSIGHT 03</span>
+<h3>Language shapes clarity</h3>
+<p>
+Language came up in all four interviews,
+although the questions may have prompted it.
+</p>
+</div>
+</div>
+
+<div class="note">
+Research limitation: This was a small, directional study of
+four participants. Only one discussed Sigiriya. The interviews
+did not establish actual on-site scanning behavior.
+</div>
+</div>
+</section>
+
+<!-- UX DEFINITION -->
+<section class="section">
+<div class="container">
+<div class="eyebrow">03 / Defining the opportunity</div>
+
+<h2>
+From observations<br>
+<span class="serif">to design decisions.</span>
+</h2>
+
+<p class="section-intro">
+I translated the research into a Lean UX Canvas,
+composite personas and prioritized user stories,
+separating interview evidence from assumptions.
+</p>
+
+<div class="image-frame">
+<img src="images/lean-ux-canvas.png"
+alt="Lean UX Canvas" loading="lazy">
+</div>
+<p class="caption">
+Lean UX Canvas — the problem, assumptions, outcomes and experiments.
+</p>
+
+<div class="image-frame">
+<img src="images/personas.png"
+alt="Primary and secondary personas" loading="lazy">
+</div>
+<p class="caption">
+Composite personas — the Curious Learner and Devoted Visitor.
+Names and illustrations are fictional.
+</p>
+
+<div class="screen-gallery">
+<figure>
+<img src="images/user-stories-must.png"
+alt="Must-have user stories" loading="lazy">
+<figcaption>
+Must-have stories — core features, accessibility and recovery.
+</figcaption>
+</figure>
+
+<figure>
+<img src="images/user-stories-should-could.png"
+alt="Should-have and could-have user stories" loading="lazy">
+<figcaption>
+Future opportunities — separating optional features from core scope.
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+
+<!-- USER FLOWS -->
+<section class="section">
+<div class="container">
+<div class="eyebrow">04 / Information architecture</div>
+
+<h2>
+Mapping the experience.<br>
+<span class="serif">Including when things go wrong.</span>
+</h2>
+
+<p class="section-intro">
+The flows cover primary tasks, decision points,
+alternative routes and recovery states, documenting
+the experience beyond the happy path.
+</p>
+
+<div class="flow-grid">
+<div class="flow-card">
+<span class="num">FLOW 01 / CORE</span>
+<h3>Find an answer</h3>
+<p>
+Choose a language, scan or select a feature,
+then read an answer. Includes scanning and loading failures.
+</p>
+</div>
+
+<div class="flow-card">
+<span class="num">FLOW 02 / CORE</span>
+<h3>Switch language</h3>
+<p>
+Change between Sinhala and English
+while remaining on the same feature.
+</p>
+</div>
+
+<div class="flow-card">
+<span class="num">FLOW 03 / ADD-ON</span>
+<h3>Find a feature</h3>
+<p>
+Use a location view or hint to find a heritage
+feature, with a fallback if location data is missing.
+</p>
+</div>
+</div>
+
+<div class="image-frame">
+<img src="images/flow-1.png"
+alt="Core answer discovery user flow" loading="lazy">
+</div>
+<p class="caption">
+Flow 01 — language, feature discovery, answer and recovery.
+</p>
+
+<div class="image-frame">
+<img src="images/flow-2.png"
+alt="Language switching user flow" loading="lazy">
+</div>
+<p class="caption">
+Flow 02 — switching languages without losing context.
+</p>
+
+<div class="image-frame">
+<img src="images/flow-3.png"
+alt="Feature location user flow" loading="lazy">
+</div>
+<p class="caption">
+Flow 03 — optional feature-location experience.
+</p>
+</div>
+</section>
+
+<!-- NEW WIREFRAME SHOWCASE -->
+<section class="section wireframe-showcase" id="wireframes">
+<div class="container">
+
+<div class="eyebrow">05 / Wireframe exploration</div>
+
+<h2>
+Structure before<br>
+<span class="serif">visual design.</span>
+</h2>
+
+<p class="section-intro wf-intro">
+Before creating high-fidelity screens, I translated the
+user flows into low-fidelity wireframes. These helped me
+explore navigation, screen hierarchy, language interactions
+and recovery paths.
+</p>
+
+<!-- STORY 1 -->
+<article class="wf-story">
+<div class="wf-story-top">
+<div>
+<span class="wf-kicker">01 / Core user journey</span>
+<h3>From curiosity to clarity.</h3>
+<p>
+A simple journey from selecting a language to exploring
+Sigiriya and finding an answer about a heritage feature.
+</p>
+</div>
+<div class="wf-number">01</div>
+</div>
+
+<div class="wf-visual">
+<img src="images/wireframe-core.png"
+onerror="this.onerror=null;this.src='assets/images/wireframe-core.png'"
+alt="Combined core journey wireframes"
+loading="lazy">
+</div>
+
+<div class="wf-flow-labels">
+<span>Choose language</span><b>→</b>
+<span>Explore</span><b>→</b>
+<span>Find feature</span><b>→</b>
+<span>Read answer</span>
+</div>
+</article>
+
+<!-- STORY 2 -->
+<article class="wf-story">
+<div class="wf-story-top">
+<div>
+<span class="wf-kicker">02 / Key interactions</span>
+<h3>Language without barriers.</h3>
+<p>
+The interface allows visitors to change their preferred
+language without restarting their journey or losing
+the current feature.
+</p>
+</div>
+<div class="wf-number">02</div>
+</div>
+
+<div class="wf-visual">
+<img src="images/wireframe-interactions.png"
+onerror="this.onerror=null;this.src='assets/images/wireframe-interactions.png'"
+alt="Combined language interaction wireframes"
+loading="lazy">
+</div>
+
+<div class="wf-flow-labels">
+<span>Current answer</span><b>→</b>
+<span>Change language</span><b>→</b>
+<span>Continue reading</span>
+</div>
+</article>
+
+<!-- STORY 3 -->
+<article class="wf-story">
+<div class="wf-story-top">
+<div>
+<span class="wf-kicker">03 / Error and recovery</span>
+<h3>Designed for the unexpected.</h3>
+<p>
+Scanning failures, loading problems and unavailable
+answers are supported by clear messages and useful
+next actions rather than leaving visitors stuck.
+</p>
+</div>
+<div class="wf-number">03</div>
+</div>
+
+<div class="wf-visual">
+<img src="images/wireframe-recovery.png"
+onerror="this.onerror=null;this.src='assets/images/wireframe-recovery.png'"
+alt="Combined error and recovery wireframes"
+loading="lazy">
+</div>
+
+<div class="wf-flow-labels">
+<span>Problem occurs</span><b>→</b>
+<span>Clear feedback</span><b>→</b>
+<span>Retry or alternative</span>
+</div>
+</article>
+
+<div class="wf-summary">
+<strong>Why these wireframes matter</strong>
+<p>
+These three visual stories summarize the key interaction
+decisions behind the product. The detailed user-flow
+diagrams above document the complete paths, while
+the wireframes demonstrate how those paths translate
+into actual screens.
+</p>
+</div>
+
+</div>
+</section>
+
+<!-- VISUAL DIRECTION -->
+<section class="dark">
+<div class="container">
+<div class="eyebrow">06 / Visual direction</div>
+
+<h2>
+Inspired by the place,<br>
+not competing with it.
+</h2>
+
+<p style="max-width:700px">
+Deep jungle greens, warm ochre accents,
+soft neutral surfaces and editorial typography
+create a calm visual identity that keeps the
+heritage experience at the center.
+</p>
+
+<div class="image-frame" style="border:0">
+<img src="images/moodboard.png"
+alt="Sigiriya visual moodboard" loading="lazy">
+</div>
+</div>
+</section>
+
+<!-- FINAL UI -->
+<section class="section" id="design">
+<div class="container">
+<div class="eyebrow">07 / Final interface design</div>
+
+<h2>
+Turning complexity into<br>
+<span class="serif">clear, useful screens.</span>
+</h2>
+
+<p class="section-intro">
+The interface uses short explanations,
+progressive disclosure, accessible touch targets
+and clear next actions. These screens demonstrate
+how the experience moves from one step to the next.
+</p>
+
+<div class="image-frame">
+<img src="images/final-core-flow.png"
+alt="Core high-fidelity mobile screens" loading="lazy">
+</div>
+<p class="caption">
+01 / Core experience — language → home → answer → detail.
+</p>
+
+<div class="image-frame">
+<img src="images/final-language.png"
+alt="Language switching screens" loading="lazy">
+</div>
+<p class="caption">
+02 / Language switching — same feature, different language.
+</p>
+
+<div class="image-frame">
+<img src="images/final-errors.png"
+alt="High-fidelity error and recovery screens" loading="lazy">
+</div>
+<p class="caption">
+03 / Recovery states — clear feedback and next actions.
+</p>
+
+<div class="image-frame">
+<img src="images/final-feature-location.png"
+alt="Feature discovery and location screens" loading="lazy">
+</div>
+<p class="caption">
+04 / Feature discovery — list browsing and conceptual location view.
+</p>
+</div>
+</section>
+
+<!-- DESIGN SYSTEM -->
+<section class="section">
+<div class="container">
+<div class="eyebrow">08 / Design system and handoff</div>
+
+<h2>
+Designed for consistency.<br>
+<span class="serif">Documented for clarity.</span>
+</h2>
+
+<p class="section-intro">
+Reusable component patterns and defined interaction
+states make the interface easier to maintain and
+communicate to developers.
+</p>
+
+<div class="image-frame">
+<img src="images/components-states.png"
+alt="Figma components and interaction states"
+loading="lazy">
+</div>
+
+<p class="caption">
+Component specifications — buttons, focus and disabled states,
+search inputs, feature cards, language controls and messages.
+</p>
+
+<div class="insights">
+<div class="insight">
+<span>COMPONENTS</span>
+<h3>Reusable patterns</h3>
+<p>
+Consistent buttons, feature cards, app bars,
+language selectors and message boxes.
+</p>
+</div>
+
+<div class="insight">
+<span>INTERACTIONS</span>
+<h3>Documented states</h3>
+<p>
+Default, pressed, focus, disabled, loading,
+error and unavailable-content behavior.
+</p>
+</div>
+
+<div class="insight">
+<span>ACCESSIBILITY</span>
+<h3>Inclusive decisions</h3>
+<p>
+Touch targets of at least 44 px, readable labels
+and feedback that doesn't depend on color alone.
+</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- REFLECTION -->
+<section class="section">
+<div class="container">
+<div class="eyebrow">09 / Reflection and next steps</div>
+
+<h2>
+What I learned.<br>
+<span class="serif">What comes next.</span>
+</h2>
+
+<div class="two-col">
+<div class="card">
+<h3>Key design takeaways</h3>
+<p>
+A strong interface starts with understanding
+what users are trying to accomplish, not with
+choosing visual styles.
+</p>
+<p>
+Documenting alternative paths and failure states
+is as important as designing the successful journey.
+</p>
+<p>
+Small-sample research should guide hypotheses
+without being presented as universal proof.
+</p>
+</div>
+
+<div class="card">
+<h3>Next validation steps</h3>
+<p>
+Test the clickable prototype with Sri Lankan
+heritage visitors, including Sinhala-first participants.
+</p>
+<p>
+Measure time to first answer, task ease and
+whether visitors can explain a feature in their own words.
+</p>
+<p>
+Validate on-site scanning before treating
+it as a proven solution.
+</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PROTOTYPE -->
+<section class="prototype">
+<div class="container">
+<div class="eyebrow">Explore the prototype</div>
+
+<h2>
+Experience the design<br>
+<span class="serif">in Figma.</span>
+</h2>
+
+<p>
+Explore the mobile experience, navigation,
+language selection and screen interactions
+through the clickable prototype.
+</p>
+
+<a class="pill"
+href="https://www.figma.com/proto/ZB5r0ifPbSGa79fYB8XM8i/Shafeeka_Capstone_Stemlink?node-id=201-1655&p=f&t=u5tIpqV7qDy8EVKx-1&scaling=scale-down&content-scaling=fixed&page-id=92%3A1490&starting-point-node-id=201%3A1655&show-proto-sidebar=1"
+target="_blank" rel="noopener">
+Open interactive prototype ↗
+</a>
+</div>
+</section>
+
+<!-- NEXT PROJECT -->
+<section class="section">
+<div class="container" style="text-align:center">
+<div class="eyebrow">Next project</div>
+
+<h2>Explore <span class="serif">FoodLoop.</span></h2>
+
+<p class="section-intro" style="margin:0 auto 25px">
+A food donation experience progressing from
+research, user flows and wireframes into
+high-fidelity interface design.
+</p>
+
+<a class="pill" href="foodloop.html">
+View FoodLoop project ↗
+</a>
+</div>
+</section>
+
+</main>
+
+<footer class="container footer">
+<span>
+© 2026 Fathima Shafeeka · UI/UX Designer & Software Engineer
+</span>
+<a href="index.html">← Back to portfolio</a>
+</footer>
+
+</body>
+</html>

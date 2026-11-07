@@ -1,0 +1,790 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Fathima Shafeeka — UI/UX Designer and Software Engineering graduate. Research-led digital products, interfaces and prototypes.">
+<title>Fathima Shafeeka | UI/UX Designer & Software Engineer</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root{
+  --ink:#211c1a;
+  --green:#443027;
+  --cream:#faf6f0;
+  --muted:#756960;
+  --line:#e9dfd5;
+  --ochre:#a4764e;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:'DM Sans',sans-serif;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.container{max-width:1220px;margin:auto;padding:0 28px}
+
+.eyebrow{
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:#9a648b;
+}
+.serif{
+  font-family:'Playfair Display',serif;
+  font-style:italic;
+  color:var(--green);
+  font-weight:500;
+}
+.pill{
+  background:var(--green);
+  color:#fff;
+  border-radius:50px;
+  padding:14px 23px;
+  display:inline-block;
+  font-weight:700;
+  font-size:13px;
+  transition:.2s;
+}
+.pill:hover{background:#2d211c;transform:translateY(-2px)}
+.outline{
+  border:1px solid #c8b8d3;
+  padding:13px 22px;
+  border-radius:50px;
+  display:inline-block;
+  font-size:13px;
+  font-weight:700;
+  transition:.2s;
+}
+.outline:hover{background:#f3e8db}
+a:focus-visible{
+  outline:3px solid var(--ochre);
+  outline-offset:4px;
+}
+
+/* NAVIGATION */
+nav{
+  height:80px;
+  border-bottom:1px solid var(--line);
+  background:rgba(250,246,240,.96);
+  position:sticky;
+  top:0;
+  z-index:20;
+  backdrop-filter:blur(15px);
+}
+.nav-inner{
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+.logo{
+  font-size:17px;
+  font-weight:800;
+  letter-spacing:-.7px;
+}
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:30px;
+  font-size:13px;
+  font-weight:600;
+}
+.nav-links>a:not(.pill):hover{color:var(--ochre)}
+
+/* HERO */
+.hero{padding:95px 0 100px}
+.hero-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 220px;
+  gap:65px;
+  align-items:center;
+}
+.hero h1{
+  font-size:clamp(48px,6.3vw,86px);
+  letter-spacing:-4px;
+  line-height:1.08;
+  margin:22px 0 27px;
+}
+.hero-description{
+  color:#756960;
+  font-size:17px;
+  line-height:1.85;
+  max-width:650px;
+}
+.hero-actions{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:30px;
+}
+.hero-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:34px;
+}
+.hero-tags span{
+  font-size:11px;
+  font-weight:700;
+  color:#756960;
+  padding:9px 13px;
+  border:1px solid #e8ddd1;
+  border-radius:30px;
+}
+
+/* COMPACT PROFILE PHOTO */
+.portrait-wrap{width:250px;max-width:100%;margin:0 auto;position:relative}
+.portrait-bg{background:#eee1d3;padding:8px;border:1px solid #e1d2c2;border-radius:22px;box-shadow:0 15px 35px rgba(58,36,25,.10)}
+.profile-photo{display:block;width:100%;height:250px;aspect-ratio:1/1;object-fit:cover;object-position:center center;border-radius:13px}
+.portrait-label{position:static;text-align:center;background:transparent;border:0;box-shadow:none;padding:13px 0 0}
+.portrait-label strong{display:block;font-size:12px}
+.portrait-label span{display:block;color:var(--muted);font-size:10px;margin-top:4px}
+
+/* SECTIONS */
+.section{
+  padding:95px 0;
+  border-top:1px solid var(--line);
+}
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:30px;
+  margin-bottom:40px;
+}
+.section h2{
+  font-size:clamp(35px,4.5vw,60px);
+  line-height:1.13;
+  letter-spacing:-2px;
+  margin:13px 0 20px;
+}
+.section-desc{
+  color:var(--muted);
+  max-width:430px;
+  line-height:1.8;
+  font-size:15px;
+}
+
+/* PROJECTS */
+.project{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:22px;
+  overflow:hidden;
+  margin-bottom:28px;
+  transition:transform .25s,box-shadow .25s;
+}
+.project:hover{
+  transform:translateY(-4px);
+  box-shadow:0 20px 50px rgba(20,40,20,.07);
+}
+.project-visual{
+  height:440px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  padding:36px;
+}
+.sigiriya-bg{
+  background:linear-gradient(125deg,#e9dccc,#f7efe5);
+}
+.foodloop-bg{
+  background:linear-gradient(125deg,#e4efff,#c5d9ff);
+}
+.project-preview{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  border-radius:12px;
+}
+.project-info{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:30px 36px;
+  gap:20px;
+}
+.project-info h3{
+  font-size:26px;
+  letter-spacing:-.8px;
+  margin:8px 0;
+}
+.project-info p{
+  color:var(--muted);
+  margin:0;
+  font-size:14px;
+  line-height:1.7;
+}
+.tag{
+  display:inline-block;
+  font-size:11px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  font-weight:800;
+  color:#766b80;
+}
+.project-link{
+  border:1px solid var(--line);
+  border-radius:50%;
+  height:49px;
+  width:49px;
+  display:grid;
+  place-items:center;
+  font-size:22px;
+  flex-shrink:0;
+}
+.project-link:hover{
+  background:var(--green);
+  color:white;
+}
+
+/* FOODLOOP ORIGINAL PLACEHOLDER */
+.visual-placeholder{
+  width:100%;
+  max-width:850px;
+  border-radius:16px;
+  border:1px dashed #9aab9e;
+  padding:90px 25px;
+  text-align:center;
+  background:rgba(255,255,255,.55);
+}
+.visual-placeholder strong{
+  display:block;
+  font-family:'Playfair Display',serif;
+  font-size:clamp(30px,4vw,55px);
+  margin-bottom:12px;
+}
+.visual-placeholder span{
+  font-size:14px;
+  color:#59675f;
+}
+
+/* PROCESS */
+.process-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+  margin-top:35px;
+}
+.process-card{
+  padding:28px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:white;
+  min-height:225px;
+}
+.process-number{
+  font-size:11px;
+  color:var(--ochre);
+  font-weight:800;
+}
+.process-card h3{
+  font-size:21px;
+  letter-spacing:-.5px;
+  margin:35px 0 10px;
+}
+.process-card p{
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.8;
+  margin:0;
+}
+
+/* CAPABILITIES */
+.showcase{
+  background:var(--green);
+  color:white;
+  padding:95px 0;
+}
+.showcase .eyebrow{color:#edc8a2}
+.showcase h2{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(36px,5vw,68px);
+  max-width:850px;
+  line-height:1.2;
+  font-weight:500;
+}
+.showcase-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:17px;
+  margin-top:40px;
+}
+.showcase-card{
+  background:#624a3b;
+  padding:28px;
+  border-radius:16px;
+  min-height:210px;
+}
+.showcase-card .number{
+  color:#edc8a2;
+  font-weight:800;
+  font-size:11px;
+}
+.showcase-card h3{
+  font-size:21px;
+  margin-top:45px;
+}
+.showcase-card p{
+  font-size:13px;
+  color:#f6edf8;
+  line-height:1.8;
+}
+
+/* ABOUT */
+.about-grid{
+  display:grid;
+  grid-template-columns:.85fr 1.15fr;
+  gap:75px;
+  align-items:start;
+}
+.about-copy{
+  font-size:16px;
+  line-height:1.95;
+  color:#756960;
+  margin-top:0;
+}
+.skills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:25px;
+}
+.skill{
+  padding:11px 15px;
+  border:1px solid #e4d8cb;
+  border-radius:50px;
+  font-size:12px;
+  font-weight:700;
+}
+
+/* CONTACT */
+.contact{
+  background:#f3e8db;
+  text-align:center;
+  padding:105px 20px;
+}
+.contact h2{
+  font-size:clamp(43px,6vw,78px);
+  letter-spacing:-3px;
+  line-height:1.1;
+  margin:20px auto 28px;
+  max-width:780px;
+}
+.contact p{
+  color:var(--muted);
+  line-height:1.8;
+}
+.footer{
+  padding:28px 0;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  font-size:12px;
+  color:var(--muted);
+}
+
+/* RESPONSIVE */
+@media(max-width:950px){
+  .hero-grid{gap:35px}
+  .hero h1{letter-spacing:-2.5px}
+  .process-grid{grid-template-columns:repeat(2,1fr)}
+  .showcase-grid{grid-template-columns:1fr}
+  .about-grid{gap:35px}
+}
+@media(max-width:700px){
+  .hero{padding:65px 0}
+  .hero-grid{
+    grid-template-columns:1fr;
+    gap:50px;
+  }
+  .portrait-wrap{
+    margin:0 auto;
+    max-width:220px;
+  }
+  .profile-photo{height:220px}
+  .portrait-label{left:-8px}
+  .section-head{display:block}
+  .about-grid{grid-template-columns:1fr}
+  .project-visual{height:300px;padding:18px}
+  .nav-links{gap:12px}
+}
+@media(max-width:550px){
+  .container{padding:0 19px}
+  nav{height:70px}
+  .logo{font-size:14px}
+  .nav-links a:not(.pill){display:none}
+  .nav-links .pill{padding:11px 15px}
+  .hero h1{font-size:clamp(43px,11vw,58px)}
+  .hero-description{font-size:15px}
+  .process-grid{grid-template-columns:1fr}
+  .project-info{padding:22px}
+  .project-info h3{font-size:21px}
+  .section{padding:65px 0}
+  .showcase{padding:70px 0}
+  .visual-placeholder{padding:50px 15px}
+  .footer{flex-direction:column}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{
+    transition:none!important;
+    animation:none!important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+<div class="container nav-inner">
+  <a class="logo" href="index.html">
+    FATHIMA SHAFEEKA<span style="color:#a4764e">.</span>
+  </a>
+  <div class="nav-links">
+    <a href="#work">Work</a>
+    <a href="#process">Process</a>
+    <a href="#about">About</a>
+    <a class="pill" href="#contact">Let's talk ↗</a>
+  </div>
+</div>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<section class="hero">
+<div class="container hero-grid">
+
+  <div class="hero-content">
+    <div class="eyebrow">
+      UI/UX DESIGNER & SOFTWARE ENGINEER · SRI LANKA
+    </div>
+
+    <h1>
+      Designing digital
+      experiences with
+      <span class="serif">purpose.</span>
+    </h1>
+
+    <p class="hero-description">
+      I'm Fathima Shafeeka, a UI/UX Designer and
+      First Class Honours Software Engineering graduate.
+      I transform complex requirements into intuitive,
+      accessible and thoughtfully designed digital experiences.
+    </p>
+
+    <div class="hero-actions">
+      <a class="pill" href="#work">Explore my work ↗</a>
+      <a class="outline"
+         href="https://www.linkedin.com/in/fathima-shafeeka/"
+         target="_blank" rel="noopener noreferrer">
+        LinkedIn ↗
+      </a>
+    </div>
+
+    <div class="hero-tags">
+      <span>UX Research</span>
+      <span>Product Design</span>
+      <span>Figma</span>
+      <span>Front-End Development</span>
+    </div>
+  </div>
+
+  <div class="portrait-wrap">
+    <div class="portrait-bg">
+      <img
+        src="images/profile.png"
+        alt="Portrait of Fathima Shafeeka"
+        class="profile-photo"
+        width="250"
+        height="250"
+        fetchpriority="high">
+    </div>
+
+    <div class="portrait-label">
+      <strong>Fathima Shafeeka</strong>
+      <span>Design × Technology</span>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- SELECTED WORK -->
+<section class="section" id="work">
+<div class="container">
+
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">01 / Selected work</div>
+      <h2>
+        Projects built around<br>
+        <span class="serif">real problems.</span>
+      </h2>
+    </div>
+
+    <p class="section-desc">
+      From understanding user needs to mapping
+      workflows and designing clear interfaces,
+      here's a selection of my UX work.
+    </p>
+  </div>
+
+  <!-- SIGIRIYA -->
+  <article class="project">
+    <a href="sigiriya.html" aria-label="Explore Sigiriya case study">
+      <div class="project-visual sigiriya-bg">
+        <img
+          class="project-preview"
+          src="images/sigiriya_preview.png"
+          alt="Sigiriya Answer Guide project cover"
+          loading="lazy">
+      </div>
+    </a>
+
+    <div class="project-info">
+      <div>
+        <span class="tag">Featured case study · UX Research / UI Design</span>
+        <h3>Answers on the Spot — Sigiriya</h3>
+        <p>
+          Helping heritage visitors find meaningful answers
+          through a simple mobile experience.
+        </p>
+      </div>
+
+      <a class="project-link" href="sigiriya.html"
+         aria-label="View Sigiriya case study">↗</a>
+    </div>
+  </article>
+
+  <!-- FOODLOOP — ORIGINAL BLUE PLACEHOLDER -->
+  <article class="project">
+    <a href="foodloop.html" aria-label="Explore FoodLoop project">
+      <div class="project-visual foodloop-bg">
+        <div class="visual-placeholder" style="border-color:#8daee9">
+          <strong style="color:#2456c4">FoodLoop</strong>
+          <span>
+            Food donation platform · Research · User flows · Wireframes
+          </span>
+          <p style="font-size:12px;margin-top:22px">
+            High-fidelity UI in progress
+          </p>
+        </div>
+      </div>
+    </a>
+
+    <div class="project-info">
+      <div>
+        <span class="tag">
+          Work in progress · UX Research / Product Design
+        </span>
+        <h3>FoodLoop — Making food sharing easier</h3>
+        <p>
+          Designing a clearer experience for food donors and receivers.
+        </p>
+      </div>
+
+      <a class="project-link" href="foodloop.html"
+         aria-label="View FoodLoop project">↗</a>
+    </div>
+  </article>
+
+</div>
+</section>
+
+<!-- DESIGN PROCESS -->
+<section class="section" id="process">
+<div class="container">
+
+  <div class="eyebrow">02 / My design approach</div>
+
+  <h2>
+    Beyond beautiful screens.<br>
+    <span class="serif">A thoughtful process.</span>
+  </h2>
+
+  <div class="process-grid">
+
+    <div class="process-card">
+      <span class="process-number">01 / DISCOVER</span>
+      <h3>Understand</h3>
+      <p>
+        Explore the problem through requirements,
+        interviews, research and user needs.
+      </p>
+    </div>
+
+    <div class="process-card">
+      <span class="process-number">02 / DEFINE</span>
+      <h3>Structure</h3>
+      <p>
+        Turn insights into user stories,
+        prioritized features and user flows.
+      </p>
+    </div>
+
+    <div class="process-card">
+      <span class="process-number">03 / DESIGN</span>
+      <h3>Create</h3>
+      <p>
+        Develop wireframes, high-fidelity screens,
+        reusable components and prototypes.
+      </p>
+    </div>
+
+    <div class="process-card">
+      <span class="process-number">04 / REFINE</span>
+      <h3>Improve</h3>
+      <p>
+        Review interactions, identify usability
+        concerns and document design decisions.
+      </p>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- WHAT I DELIVER -->
+<section class="showcase">
+<div class="container">
+
+  <div class="eyebrow">03 / What I deliver</div>
+
+  <h2>
+    From requirements to experiences
+    that make sense.
+  </h2>
+
+  <div class="showcase-grid">
+
+    <div class="showcase-card">
+      <span class="number">01 — UX ARCHITECTURE</span>
+      <h3>User journeys & flows</h3>
+      <p>
+        Clear navigation paths, decision points,
+        alternative routes and recovery scenarios.
+      </p>
+    </div>
+
+    <div class="showcase-card">
+      <span class="number">02 — INTERFACE DESIGN</span>
+      <h3>Screens & components</h3>
+      <p>
+        High-fidelity Figma screens, reusable
+        components, variants and visual consistency.
+      </p>
+    </div>
+
+    <div class="showcase-card">
+      <span class="number">03 — DESIGN HANDOFF</span>
+      <h3>Interaction documentation</h3>
+      <p>
+        Loading, error and empty states,
+        UX notes and behavior specifications.
+      </p>
+    </div>
+
+  </div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+<div class="container about-grid">
+
+  <div>
+    <div class="eyebrow">04 / About me</div>
+
+    <h2>
+      Hello, I'm<br>
+      <span class="serif">Fathima Shafeeka.</span>
+    </h2>
+  </div>
+
+  <div>
+    <p class="about-copy">
+      I'm a UI/UX Designer and First Class Honours
+      Software Engineering graduate with four months
+      of UI/UX internship experience.
+    </p>
+
+    <p class="about-copy">
+      I enjoy combining design thinking with technical
+      understanding to create digital products that
+      are both useful for people and practical to build.
+      My work covers UX research, user flows, wireframes,
+      interface design, design systems and prototyping.
+    </p>
+
+    <div class="skills">
+      <span class="skill">Figma</span>
+      <span class="skill">UX Research</span>
+      <span class="skill">User Flows</span>
+      <span class="skill">Wireframing</span>
+      <span class="skill">Prototyping</span>
+      <span class="skill">Design Systems</span>
+      <span class="skill">HTML / CSS</span>
+      <span class="skill">JavaScript</span>
+      <span class="skill">React</span>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+
+  <div class="eyebrow">05 / Let's collaborate</div>
+
+  <h2>
+    Have an idea?<br>
+    <span class="serif">Let's make it work.</span>
+  </h2>
+
+  <p>
+    Open to UI/UX design, front-end development
+    and software engineering opportunities.
+  </p>
+
+  <div class="hero-actions"
+       style="justify-content:center;margin-top:30px">
+
+    <a class="pill" href="mailto:Fathimasfq@gmail.com">
+      Email me ↗
+    </a>
+
+    <a class="outline"
+       href="https://www.linkedin.com/in/fathima-shafeeka/"
+       target="_blank" rel="noopener noreferrer">
+      Connect on LinkedIn ↗
+    </a>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="container footer">
+  <span>© 2026 Fathima Shafeeka. Designed with intention.</span>
+  <span>UI/UX Design · Software Engineering · Sri Lanka</span>
+</footer>
+
+</body>
+</html>
